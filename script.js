@@ -33,20 +33,33 @@ const isDead = health => {
 };
 
 // Function Declaration fight
+// the main game function
 function fight(player1, player2, player1Health, player2Health) {
-  while (true) {
+//   while true
+    while (true) {
+//  determine which player will attack
     let attacker = chooseOption(player1, player2);
+//   if player 1 is the attacker 
     if (attacker === player1) {
-      player2Health = attackPlayer(player2Health);
-      logHealth(player2, player2Health);
-      if (isDead(player2Health)) {
+// update player2 healths
+    player2Health = attackPlayer(player2Health);
+// log player 2 health 
+    logHealth(player2, player2Health);
+// if player 2 isDead 
+    if (isDead(player2Health)) {
+    //    log player1 as winner
         logDeath(player1, player2);
         break;
       }
+    //   else player 2 is the attacker
     } else {
-      player1Health = attackPlayer(player1Health);
-      logHealth(player1, player1Health);
-      if (isDead(player1Health)) {
+    // update player1s health 
+    player1Health = attackPlayer(player1Health);
+    // log player1s health 
+    logHealth(player1, player1Health);
+    // if player 1 isDead  
+    if (isDead(player1Health)) {
+ // log player2 as the winner
         logDeath(player2, player1);
         break;
       }
